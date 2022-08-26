@@ -17,11 +17,10 @@ import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
-import AlignItemsList from './AlignItemsList';
+import { secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
-import { useNavigate, Route, Routes, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
@@ -33,6 +32,7 @@ import { LogoutRounded } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
 import { menuSliceActions } from '../store/menuSlice';
 import { syncMenuItems } from '../server';
+import { loginActions } from '../store/loginSlice';
 
 //import Orders from "./Orders";
 
@@ -146,6 +146,14 @@ function DashboardContent() {
         navigate('../home/menu', { replace: true });
     };
 
+    const logoutHandler = (event) => {
+        event.preventDefault();
+
+        dispatch(loginActions.removeLoginDetails());
+
+        navigate('../login', { replace: true });
+    };
+
     return (
         <ThemeProvider theme={mdTheme}>
             <Box sx={{ display: 'flex' }}>
@@ -210,7 +218,7 @@ function DashboardContent() {
                                 <ListItemIcon>
                                     <LogoutRounded />
                                 </ListItemIcon>
-                                <ListItemText primary='Logout' />
+                                <ListItemText primary='Logout' onClick={logoutHandler} />
                             </ListItemButton>
                         </React.Fragment>
                         <Divider sx={{ my: 1 }} />

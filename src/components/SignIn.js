@@ -12,7 +12,6 @@ import LoginIcon from '@mui/icons-material/Login';
 //import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { loginActions } from '../store/loginSlice';
@@ -26,7 +25,7 @@ function Copyright(props) {
         <Typography variant='body2' color='text.secondary' align='center' {...props}>
             {'Copyright © '}
             <Link color='inherit' href='https://mui.com/'>
-                Your Website
+                Alpha Consultancy Services
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -48,9 +47,6 @@ export default function SignIn(props) {
 
     const handleFocus = (event) => {};
 
-    const handleClose = () => {
-        setOpen(false);
-    };
     const handleToggle = () => {
         console.log('Toggling ', open);
         setOpen(!open);
