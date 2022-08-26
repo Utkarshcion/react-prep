@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import SignIn from './components/SignIn';
 import StickyFooter from './components/StickyFooter';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import Dashboard from './components/Dashboard';
 import AlignItemsList from './components/AlignItemsList';
 
